@@ -6,7 +6,7 @@ export default {
 		"./pages/**/*.{ts,tsx}",
 		"./components/**/*.{ts,tsx}",
 		"./app/**/*.{ts,tsx}",
-		"./src/**/*.{ts,tsx}",
+		"./src/**/*.{ts,tsx}"
 	],
 	prefix: "",
 	theme: {
@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'sf': ['SF Pro Display', 'system-ui', 'sans-serif'],
+				'sf-text': ['SF Pro Text', 'system-ui', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -61,6 +65,15 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Apple Liquid Glass colors
+				glass: {
+					blue: '#007AFF',
+					purple: '#5856D6', 
+					pink: '#AF52DE',
+					magenta: '#FF2D92',
+					gray: '#F2F2F7',
+					white: '#FFFFFF',
 				}
 			},
 			borderRadius: {
@@ -84,11 +97,26 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'liquid-float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' },
+				},
+				'glass-glow': {
+					'0%, 100%': { boxShadow: '0 0 20px rgba(0, 122, 255, 0.3)' },
+					'50%': { boxShadow: '0 0 40px rgba(0, 122, 255, 0.6)' },
+				},
+				'scan-wave': {
+					'0%': { transform: 'scaleX(0)', opacity: '1' },
+					'100%': { transform: 'scaleX(1)', opacity: '0' },
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'liquid-float': 'liquid-float 3s ease-in-out infinite',
+				'glass-glow': 'glass-glow 2s ease-in-out infinite',
+				'scan-wave': 'scan-wave 1.5s ease-out infinite',
 			}
 		}
 	},

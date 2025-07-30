@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&family=SF+Pro+Text:wght@300;400;500;600&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -96,6 +98,56 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sf-text;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl shadow-2xl;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+  }
+
+  .liquid-gradient {
+    background: linear-gradient(
+      135deg,
+      #007aff 0%,
+      #5856d6 25%,
+      #af52de 50%,
+      #ff2d92 75%,
+      #007aff 100%
+    );
+    background-size: 400% 400%;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  .glass-button {
+    @apply backdrop-blur-sm bg-white/20 border border-white/30 rounded-full px-8 py-4 text-white font-sf font-medium transition-all duration-300;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0.1) 100%
+    );
+  }
+
+  .glass-button:hover {
+    @apply bg-white/30 border-white/40 scale-105;
+    box-shadow: 0 20px 40px rgba(0, 122, 255, 0.3);
+  }
+}
+
+@layer utilities {
+  @keyframes gradient-shift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
   }
 }
